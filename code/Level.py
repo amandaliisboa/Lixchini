@@ -1,7 +1,7 @@
 #!usr/bin/python
 #-*- coding: utf-8 -*-
 
-Class Level:
+class Level:
 
     def __init__(self):
         self.window = None
@@ -11,4 +11,3 @@ Class Level:
 
     def run(self, ):
         pass
-    
