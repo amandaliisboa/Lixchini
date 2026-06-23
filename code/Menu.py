@@ -20,8 +20,8 @@ class Menu:
         pygame.mixer.music.play(-1)
 
         while True:
-            self.menu_text(100, "Lixchini", COLOR_ORANGE, ((WIN_WIDTH / 2), 70))
-            self.menu_text(100, "Bianlis", COLOR_ORANGE, ((WIN_WIDTH / 2), 160))
+            self.menu_text(100, "Lixchini", COLOR_WHITE, ((WIN_WIDTH / 2), 70))
+            self.menu_text(100, "Bianlis", COLOR_WHITE, ((WIN_WIDTH / 2), 160))
 
             for i in range(len(MENU_OPTION)):
                 self.menu_text(30, MENU_OPTION[i], COLOR_WHITE, ((WIN_WIDTH / 2), 300 + 30 * i))
