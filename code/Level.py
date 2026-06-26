@@ -3,8 +3,8 @@
 import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
-
-from code.Const import COLOR_WHITE, WIN_HEIGHT, COLOR_RED
+import random
+from code.Const import WIN_HEIGHT, COLOR_RED, MENU_OPTION, EVENT_ENEMY, SPAWN_TIME
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
 
@@ -17,7 +17,11 @@ class Level:
         self.game_mode = game_mode
         self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity('sky'))
+        self.entity_list.append(EntityFactory.get_entity('Player1'))
         self.timeout = 20000 #20 segundos
+        if game_mode in [MENU_OPTION[1], MENU_OPTION[2]]:
+            self.entity_list.append(EntityFactory.get_entity('Player2'))
+        pygame.time.set_timer(EVENT_ENEMY, SPAWN_TIME)
 
     def run(self):
         pygame.mixer.music.load('./asset/level1.mp3')
@@ -28,6 +32,9 @@ class Level:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
+                if event.type == EVENT_ENEMY:
+                    choice = random.choice(('enemy1', 'enemy2'))
+                    self.entity_list.append(EntityFactory.get_entity(choice))
 
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
