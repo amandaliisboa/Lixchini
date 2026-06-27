@@ -18,9 +18,13 @@ ENTITY_SPEED = {
     'sky5': 5,
     'sky6': 6,
     'Player1': 3,
+    'Player1Shot': 1,
     'Player2': 3,
-    'enemy1': 2,
-    'enemy2': 2,
+    'Player2Shot': 3,
+    'enemy1': 1,
+    'enemy1Shot': 5,
+    'enemy2': 1,
+    'enemy2Shot': 2,
 }
 
 # M
@@ -69,7 +73,18 @@ ENTITY_HEALTH = {
     'sky5': 999,
     'sky6': 999,
     'Player1': 300,
+    'Player1Shot': 1,
     'Player2': 300,
+    'Player2Shot': 1,
     'enemy1': 50,
+    'enemy1Shot': 1,
     'enemy2': 60,
+    'enemy2Shot': 1,
+}
+
+ENTITY_SHOT_DELAY = {
+    'Player1': 20,
+    'Player2': 15,
+    'enemy1': 100,
+    'enemy2': 200,
 }

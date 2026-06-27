@@ -8,7 +8,8 @@ from code.Const import WIN_HEIGHT, COLOR_RED, MENU_OPTION, EVENT_ENEMY, SPAWN_TI
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
 from code.EntityMediator import EntityMediator
-
+from code.Player import Player
+from code.Enemy import Enemy
 
 class Level:
 
@@ -40,6 +41,10 @@ class Level:
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
+                if isinstance(ent, (Player, Enemy)):
+                    shoot = ent.shoot()
+                    if shoot is not None:
+                        self.entity_list.append(shoot)
 
             self.level_text(text_size=14, text=f'{self.name} - Timeout: {self.timeout / 1000:.1f}s',
                             text_color=COLOR_RED, text_pos=(10, 5))

@@ -21,7 +21,7 @@ class EntityFactory:
 
                 return list_bg
             case 'Player1':
-                return Player('Player1', (10, WIN_HEIGHT / 2))
+                return Player('Player1', (10, WIN_HEIGHT / 2 - 100))
             case 'Player2':
                 return Player('Player2', (10, WIN_HEIGHT / 2))
             case 'enemy1':
