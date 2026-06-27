@@ -57,3 +57,19 @@ ENTITY_SCALE = {
     'enemy1': 1,
     'enemy2': 1,
 }
+
+# H
+
+ENTITY_HEALTH = {
+    'sky0': 999,
+    'sky1': 999,
+    'sky2': 999,
+    'sky3': 999,
+    'sky4': 999,
+    'sky5': 999,
+    'sky6': 999,
+    'Player1': 300,
+    'Player2': 300,
+    'enemy1': 50,
+    'enemy2': 60,
+}

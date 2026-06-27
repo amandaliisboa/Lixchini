@@ -2,7 +2,8 @@
 
 from abc import ABC
 import pygame.image
-from code.Const import ENTITY_SCALE
+from code.Const import ENTITY_SCALE, ENTITY_HEALTH
+
 
 class Entity(ABC):
     def __init__(self, name: str, position: tuple):
@@ -12,6 +13,7 @@ class Entity(ABC):
         self.surf = pygame.transform.scale(self.surf, (self.surf.get_width() * scale, self.surf.get_height() * scale))
         self.rect = self.surf.get_rect(left=position[0], top=position[1])
         self.speed = 0
+        self.health = ENTITY_HEALTH[self.name]
 
     def move(self, ):
         pass
