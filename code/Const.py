@@ -1,22 +1,28 @@
 import pygame
 
-# C
+
 COLOR_WHITE = (255, 255, 255)
 COLOR_RED = (178, 34, 34)
 COLOR_PINK = (255, 105, 180)
 COLOR_GREEN = (0, 128, 0)
 COLOR_BLUE = (0, 0, 255)
 
-# E
+
 EVENT_ENEMY = pygame.USEREVENT + 1
+EVENT_TIMEOUT = pygame.USEREVENT + 2
 ENTITY_SPEED = {
-    'sky0': 0,
-    'sky1': 1,
-    'sky2': 2,
-    'sky3': 3,
-    'sky4': 4,
-    'sky5': 5,
-    'sky6': 6,
+    'Level1Bg0': 0,
+    'Level1Bg1': 1,
+    'Level1Bg2': 2,
+    'Level1Bg3': 3,
+    'Level1Bg4': 4,
+    'Level1Bg5': 5,
+    'Level1Bg6': 6,
+    'Level2Bg0': 0,
+    'Level2Bg1': 1,
+    'Level2Bg2': 2,
+    'Level2Bg3': 3,
+    'Level2Bg4': 4,
     'Player1': 3,
     'Player1Shot': 1,
     'Player2': 3,
@@ -27,14 +33,14 @@ ENTITY_SPEED = {
     'enemy2Shot': 2,
 }
 
-# M
+
 MENU_OPTION = ('NEW GAME 1P',
                'NEW GAME 2P - COOPERATIVE',
                'NEW GAME 2P - COMPETITIVE',
                'SCORE',
                'EXIT')
 
-# P
+
 PLAYER_KEY_UP = {'Player1': pygame.K_UP,
                  'Player2': pygame.K_w}
 PLAYER_KEY_DOWN = {'Player1': pygame.K_DOWN,
@@ -46,32 +52,40 @@ PLAYER_KEY_RIGHT = {'Player1': pygame.K_RIGHT,
 PLAYER_KEY_SHOOT = {'Player1': pygame.K_RCTRL,
                     'Player2': pygame.K_LCTRL}
 
-#S
+
 SPAWN_TIME = 4000
-# w
+
+TIMEOUT_STEP = 100
+TIMEOUT_LEVEL = 20000
+
 WIN_WIDTH = 700
 WIN_HEIGHT = 500
 
-# S
+
 ENTITY_SCALE = {
-    'sky0': 1, 'sky1': 1, 'sky2': 1, 'sky3': 1,
-    'sky4': 1, 'sky5': 1, 'sky6': 1,
+    'Level1Bg0': 1, 'Level1Bg1': 1, 'Level1Bg2': 1, 'Level1Bg3': 1,
+    'Level1Bg4': 1, 'Level1Bg5': 1, 'Level1Bg6': 1,
     'Player1': 0.2,
     'Player2': 0.2,
     'enemy1': 1,
     'enemy2': 1,
 }
 
-# H
+
 
 ENTITY_HEALTH = {
-    'sky0': 999,
-    'sky1': 999,
-    'sky2': 999,
-    'sky3': 999,
-    'sky4': 999,
-    'sky5': 999,
-    'sky6': 999,
+    'Level1Bg0': 999,
+    'Level1Bg1': 999,
+    'Level1Bg2': 999,
+    'Level1Bg3': 999,
+    'Level1Bg4': 999,
+    'Level1Bg5': 999,
+    'Level1Bg6': 999,
+    'Level2Bg0': 999,
+    'Level2Bg1': 999,
+    'Level2Bg2': 999,
+    'Level2Bg3': 999,
+    'Level2Bg4': 999,
     'Player1': 300,
     'Player1Shot': 1,
     'Player2': 300,
@@ -90,13 +104,18 @@ ENTITY_SHOT_DELAY = {
 }
 
 ENTITY_DAMAGE = {
-    'sky0': 0,
-    'sky1': 0,
-    'sky2': 0,
-    'sky3': 0,
-    'sky4': 0,
-    'sky5': 0,
-    'sky6': 0,
+    'Level1Bg0': 0,
+    'Level1Bg1': 0,
+    'Level1Bg2': 0,
+    'Level1Bg3': 0,
+    'Level1Bg4': 0,
+    'Level1Bg5': 0,
+    'Level1Bg6': 0,
+    'Level2Bg0': 0,
+    'Level2Bg1': 0,
+    'Level2Bg2': 0,
+    'Level2Bg3': 0,
+    'Level2Bg4': 0,
     'Player1': 1,
     'Player1Shot': 25,
     'Player2': 1,
@@ -108,13 +127,18 @@ ENTITY_DAMAGE = {
 }
 
 ENTITY_SCORE = {
-    'sky0': 0,
-    'sky1': 0,
-    'sky2': 0,
-    'sky3': 0,
-    'sky4': 0,
-    'sky5': 0,
-    'sky6': 0,
+    'Level1Bg0': 0,
+    'Level1Bg1': 0,
+    'Level1Bg2': 0,
+    'Level1Bg3': 0,
+    'Level1Bg4': 0,
+    'Level1Bg5': 0,
+    'Level1Bg6': 0,
+    'Level2Bg0': 0,
+    'Level2Bg1': 0,
+    'Level2Bg2': 0,
+    'Level2Bg3': 0,
+    'Level2Bg4': 0,
     'Player1': 0,
     'Player1Shot': 0,
     'Player2': 0,

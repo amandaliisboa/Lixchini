@@ -12,14 +12,22 @@ class EntityFactory:
     @staticmethod
     def get_entity(entity_name: str, position=(0, 0)):
         match entity_name:
-            case 'sky':
+
+            case 'Level1Bg':
                 list_bg = []
 
                 for i in range(7):
-                    list_bg.append(Background(f'sky{i}', position=(0,0)))
-                    list_bg.append(Background(f'sky{i}', position=(WIN_WIDTH, 0)))
-
+                    list_bg.append(Background(f'Level1Bg{i}', position=(0,0)))
+                    list_bg.append(Background(f'Level1Bg{i}', position=(WIN_WIDTH, 0)))
                 return list_bg
+            case 'Level2Bg':
+                list_bg = []
+
+                for i in range(5):
+                    list_bg.append(Background(f'Level2Bg{i}', position=(0, 0)))
+                    list_bg.append(Background(f'Level2Bg{i}', position=(WIN_WIDTH, 0)))
+                return list_bg
+
             case 'Player1':
                 return Player('Player1', (10, WIN_HEIGHT / 2 - 100))
             case 'Player2':
