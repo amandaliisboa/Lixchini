@@ -5,7 +5,7 @@ import pygame.image
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.Const import WIN_WIDTH, COLOR_ORANGE, MENU_OPTION, COLOR_WHITE, COLOR_RED, COLOR_YELLOW
+from code.Const import WIN_WIDTH, COLOR_PINK, MENU_OPTION, COLOR_WHITE
 
 
 class Menu:
@@ -21,15 +21,16 @@ class Menu:
         pygame.mixer.music.play(-1)
 
         while True:
-            self.menu_text(100, "Lixchini", COLOR_YELLOW, ((WIN_WIDTH / 2), 150))
-            self.menu_text(70, "Shock", COLOR_YELLOW, ((WIN_WIDTH / 2), 210))
+            self.window.blit(source=self.surf, dest=self.rect)  # ← veio para cá
+
+            self.menu_text(90, "Lixchini", COLOR_WHITE, ((WIN_WIDTH / 2), 150))
+            self.menu_text(70, "Shock", COLOR_WHITE, ((WIN_WIDTH / 2), 210))
 
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
-                    self.menu_text(19, MENU_OPTION[i], COLOR_YELLOW, ((WIN_WIDTH / 2), 300 + 30 * i))
+                    self.menu_text(19, MENU_OPTION[i], COLOR_PINK, ((WIN_WIDTH / 2), 300 + 30 * i))
                 else:
                     self.menu_text(19, MENU_OPTION[i], COLOR_WHITE, ((WIN_WIDTH / 2), 300 + 30 * i))
-            self.window.blit(source=self.surf, dest=self.rect)
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
