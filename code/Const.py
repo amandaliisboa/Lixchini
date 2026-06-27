@@ -1,11 +1,11 @@
 import pygame
 
 # C
-COLOR_ORANGE = (255, 128, 0)
 COLOR_WHITE = (255, 255, 255)
 COLOR_RED = (178, 34, 34)
-COLOR_YELLOW = (201, 162, 39)
 COLOR_PINK = (255, 105, 180)
+COLOR_GREEN = (0, 128, 0)
+COLOR_BLUE = (0, 0, 255)
 
 # E
 EVENT_ENEMY = pygame.USEREVENT + 1
@@ -87,4 +87,41 @@ ENTITY_SHOT_DELAY = {
     'Player2': 15,
     'enemy1': 100,
     'enemy2': 200,
+}
+
+ENTITY_DAMAGE = {
+    'sky0': 0,
+    'sky1': 0,
+    'sky2': 0,
+    'sky3': 0,
+    'sky4': 0,
+    'sky5': 0,
+    'sky6': 0,
+    'Player1': 1,
+    'Player1Shot': 25,
+    'Player2': 1,
+    'Player2Shot': 20,
+    'enemy1': 1,
+    'enemy1Shot': 20,
+    'enemy2': 1,
+    'enemy2Shot': 15,
+}
+
+ENTITY_SCORE = {
+    'sky0': 0,
+    'sky1': 0,
+    'sky2': 0,
+    'sky3': 0,
+    'sky4': 0,
+    'sky5': 0,
+    'sky6': 0,
+    'Player1': 0,
+    'Player1Shot': 0,
+    'Player2': 0,
+    'Player2Shot': 0,
+    'enemy1': 100,
+    'enemy1Shot': 0,
+    'enemy2': 125,
+    'enemy2Shot': 0,
+
 }
