@@ -34,11 +34,14 @@ class Level:
         pygame.time.set_timer(EVENT_TIMEOUT, TIMEOUT_STEP)
 
     def run(self, player_score: list[int]):
-        pygame.mixer.music.load('./asset/level1.mp3')
+        if self.name == 'Level1':
+            pygame.mixer.music.load('./asset/level1.mp3')
+        elif self.name == 'Level2':
+            pygame.mixer.music.load('./asset/level2.wav')
         pygame.mixer.music.play(-1)
         clock = pygame.time.Clock()
         while True:
-            for event in pygame.event.get():  # ← adiciona isso
+            for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
