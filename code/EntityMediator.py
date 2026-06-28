@@ -10,18 +10,22 @@ class EntityMediator:
 
     @staticmethod
     def __verify_collision_window(ent: Entity):
+        # mata inimigo que saiu pela esquerda da tela
         if isinstance(ent, Enemy):
             if ent.rect.right < 0:
                 ent.health = 0
+        # mata tiro do player que saiu pela direita da tela
         if isinstance(ent, PlayerShot):
             if ent.rect.left >= WIN_WIDTH:
                 ent.health = 0
+        # mata tiro do inimigo que saiu pela esquerda da tela
         if isinstance(ent, EnemyShot):
             if ent.rect.right <= 0:
                 ent.health = 0
 
     @staticmethod
     def __verify_collision_entity(ent1, ent2):
+        # verifica se a combinação de entidades pode se colidir
         valid_interaction = False
         if isinstance(ent1, Enemy) and isinstance(ent2, PlayerShot):
             valid_interaction = True
@@ -33,10 +37,12 @@ class EntityMediator:
             valid_interaction = True
 
         if valid_interaction:
+            # checa se os retangulos das duas entidades se sobrepoem
             if (ent1.rect.right >= ent2.rect.left and
                     ent1.rect.left <= ent2.rect.right and
                     ent1.rect.bottom >= ent2.rect.top and
                     ent1.rect.top <= ent2.rect.bottom):
+                # aplica o dano e registra quem causou
                 ent1.health -= ent2.damage
                 ent2.health -= ent1.damage
                 ent1.last_dmg = ent2.name
@@ -44,6 +50,7 @@ class EntityMediator:
 
     @staticmethod
     def __give_score(enemy: Enemy, entity_list: list[Entity]):
+        # adiciona o score ao player que matou o inimigo
         if enemy.last_dmg == 'Player1Shot':
             for ent in entity_list:
                 if ent.name == 'Player1':
@@ -57,15 +64,18 @@ class EntityMediator:
     def verify_collision(entity_list: list[Entity]):
         for i in range(len(entity_list)):
             entity1 = entity_list[i]
+            # verifica se a entidade saiu da tela
             EntityMediator.__verify_collision_window(entity1)
-            for j in range(i+1, len(entity_list)):
+            # verifica colisao com todas as outras entidades
+            for j in range(i + 1, len(entity_list)):
                 entity2 = entity_list[j]
-                EntityMediator.__verify_collision_entity(entity1, entity2)  # indentação errada
+                EntityMediator.__verify_collision_entity(entity1, entity2)
 
     @staticmethod
     def verify_health(entity_list: list[Entity]):
         for ent in entity_list:
             if ent.health <= 0:
+                # se for inimigo, da o score para quem matou antes de remover
                 if isinstance(ent, Enemy):
                     EntityMediator.__give_score(ent, entity_list)
                 entity_list.remove(ent)

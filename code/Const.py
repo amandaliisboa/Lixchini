@@ -1,15 +1,17 @@
 import pygame
 
-
+# cores usadas no jogo
 COLOR_WHITE = (255, 255, 255)
 COLOR_RED = (178, 34, 34)
 COLOR_PINK = (255, 105, 180)
 COLOR_GREEN = (0, 128, 0)
 COLOR_BLUE = (0, 0, 255)
 
+# eventos customizados do pygame
+EVENT_ENEMY = pygame.USEREVENT + 1    # spawn de inimigo
+EVENT_TIMEOUT = pygame.USEREVENT + 2  # contagem regressiva do level
 
-EVENT_ENEMY = pygame.USEREVENT + 1
-EVENT_TIMEOUT = pygame.USEREVENT + 2
+# velocidade de movimento de cada entidade (pixels por frame)
 ENTITY_SPEED = {
     'Level1Bg0': 0,
     'Level1Bg1': 1,
@@ -33,14 +35,14 @@ ENTITY_SPEED = {
     'enemy2Shot': 4,
 }
 
-
+# opções do menu principal
 MENU_OPTION = ('NEW GAME 1P',
                'NEW GAME 2P - COOPERATIVE',
                'NEW GAME 2P - COMPETITIVE',
                'SCORE',
                'EXIT')
 
-
+# teclas de movimento de cada player
 PLAYER_KEY_UP = {'Player1': pygame.K_UP,
                  'Player2': pygame.K_w}
 PLAYER_KEY_DOWN = {'Player1': pygame.K_DOWN,
@@ -52,17 +54,18 @@ PLAYER_KEY_RIGHT = {'Player1': pygame.K_RIGHT,
 PLAYER_KEY_SHOOT = {'Player1': pygame.K_RCTRL,
                     'Player2': pygame.K_LCTRL}
 
-
+# tempo em ms entre cada spawn de inimigo
 SPAWN_TIME = 2000
 
+# controle do timeout do level
+TIMEOUT_STEP = 100       # quanto diminui a cada tick
+TIMEOUT_LEVEL = 20000    # tempo total do level em ms
 
-
-TIMEOUT_STEP = 100
-TIMEOUT_LEVEL = 20000
-
+# tamanho da janela
 WIN_WIDTH = 700
 WIN_HEIGHT = 500
 
+# posições dos textos na tela de score
 SCORE_POS = {'Title': (WIN_WIDTH / 2, 50),
              'EnterName': (WIN_WIDTH / 2, 80),
              'Label': (WIN_WIDTH / 2, 150),
@@ -79,6 +82,7 @@ SCORE_POS = {'Title': (WIN_WIDTH / 2, 50),
              9: (WIN_WIDTH / 2, 380),
              }
 
+# escala de cada entidade na tela
 ENTITY_SCALE = {
     'Level1Bg0': 1, 'Level1Bg1': 1, 'Level1Bg2': 1, 'Level1Bg3': 1,
     'Level1Bg4': 1, 'Level1Bg5': 1, 'Level1Bg6': 1,
@@ -88,8 +92,7 @@ ENTITY_SCALE = {
     'enemy2': 1,
 }
 
-
-
+# vida inicial de cada entidade
 ENTITY_HEALTH = {
     'Level1Bg0': 999,
     'Level1Bg1': 999,
@@ -113,6 +116,7 @@ ENTITY_HEALTH = {
     'enemy2Shot': 1,
 }
 
+# frames de espera entre cada tiro
 ENTITY_SHOT_DELAY = {
     'Player1': 20,
     'Player2': 15,
@@ -120,6 +124,7 @@ ENTITY_SHOT_DELAY = {
     'enemy2': 60,
 }
 
+# dano causado por cada entidade ao colidir
 ENTITY_DAMAGE = {
     'Level1Bg0': 0,
     'Level1Bg1': 0,
@@ -143,6 +148,7 @@ ENTITY_DAMAGE = {
     'enemy2Shot': 20,
 }
 
+# pontos ganhos ao destruir cada entidade
 ENTITY_SCORE = {
     'Level1Bg0': 0,
     'Level1Bg1': 0,
@@ -164,6 +170,4 @@ ENTITY_SCORE = {
     'enemy1Shot': 0,
     'enemy2': 125,
     'enemy2Shot': 0,
-
 }
-
