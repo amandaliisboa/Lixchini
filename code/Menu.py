@@ -29,6 +29,10 @@ class Menu:
             self.menu_text(90, "Lixchini", COLOR_WHITE, ((WIN_WIDTH / 2), 150))
             self.menu_text(70, "Shock", COLOR_WHITE, ((WIN_WIDTH / 2), 210))
 
+            # controles
+            self.menu_text(13, "P1: Setas - Mover | CTRL DIR - Atirar", COLOR_WHITE, ((WIN_WIDTH / 2), 260))
+            self.menu_text(13, "P2: W A S D - Mover | CTRL ESQ - Atirar", COLOR_WHITE, ((WIN_WIDTH / 2), 278))
+
             # desenha as opções do menu, destacando a selecionada em rosa
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
@@ -39,7 +43,7 @@ class Menu:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
-                    quit()
+                    raise SystemExit
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_DOWN:
                         # vai para a proxima opção, volta ao inicio se chegar no fim

@@ -12,7 +12,6 @@ class Game:
         pygame.init()
         # cria a janela do jogo
         self.window = pygame.display.set_mode(size=(WIN_WIDTH, WIN_HEIGHT))
-        self.menu = Menu(self.window)
 
     def run(self):
         score = Score(self.window)
@@ -42,4 +41,4 @@ class Game:
             elif menu_return == MENU_OPTION[4]:
                 # jogador escolheu sair
                 pygame.quit()
-                quit()
+                raise SystemExit

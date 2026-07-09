@@ -54,7 +54,7 @@ class Level:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
-                    quit()
+                    raise SystemExit
 
                 if event.type == EVENT_ENEMY:
                     # spawna um inimigo aleatorio

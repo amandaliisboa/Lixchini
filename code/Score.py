@@ -1,10 +1,9 @@
 import pygame
 from pygame import Surface, Rect
-from pygame.constants import K_RETURN, K_ESCAPE
 from pygame.font import Font
 from code.DBProxy import DBProxy
 from code.Const import COLOR_WHITE, SCORE_POS, MENU_OPTION, COLOR_RED, COLOR_GREEN
-from pygame.locals import KEYDOWN, K_BACKSPACE, K_RETURN
+from pygame.locals import KEYDOWN, K_BACKSPACE, K_RETURN, K_ESCAPE
 from datetime import datetime
 
 
@@ -48,7 +47,7 @@ class Score:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
-                    quit()
+                    raise SystemExit
                 elif event.type == KEYDOWN:
                     # salva o score quando o jogador termina de digitar o nome
                     if event.key == K_RETURN and len(name) == 6:
@@ -91,7 +90,7 @@ class Score:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
-                    quit()
+                    raise SystemExit
                 if event.type == KEYDOWN:
                     if event.key == K_ESCAPE:
                         return
